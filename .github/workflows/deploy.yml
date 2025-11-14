@@ -44,14 +44,12 @@ jobs:
         uses: ./.github/actions/cached-deps
         with:
           caching: 'false'
-      - name: Load & cache dependencies
-        uses: ./.github/actions/cached-deps
       - name: Upload artifacts
         uses: actions/upload-artifact@v5
         with:
           name: dist-files
           path: dist
-          
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
