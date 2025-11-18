@@ -5,6 +5,11 @@ inputs:
     description: "Whether to cache dependecies or not."
     required: false
     default: 'true'
+outputs:
+  exit-message:
+    description: "exit message for test"
+    value: ${{steps.saludo.outputs.mess}}
+
 runs:
   using: "composite"
   steps:
@@ -19,3 +24,8 @@ runs:
       if: ${{ steps.cache.outputs.cache-hit != 'true' || inputs.caching != 'true' }}
       run: npm ci
       shell: bash
+    - name: exit message for test
+      id: saludo
+      shell: bash
+      run: |
+        echo "mess='${{inputs.exit-message}}'" >> GITHUB_OUTPUT 
