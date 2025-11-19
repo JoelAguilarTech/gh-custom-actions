@@ -6,7 +6,7 @@ inputs:
     required: false
     default: 'true'
 outputs:
-  exit-message:
+  exitMessage:
     description: "exit message for test"
     value: ${{steps.saludo.outputs.mess}}
 
@@ -28,4 +28,4 @@ runs:
       id: saludo
       shell: bash
       run: |
-        echo "mess='${{inputs.exit-message}}'" >> GITHUB_OUTPUT 
+        echo "mess=Hola mundo desde outputs" >> $GITHUB_OUTPUT 

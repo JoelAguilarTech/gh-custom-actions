@@ -14,8 +14,8 @@ jobs:
         uses: ./.github/actions/cached-deps
         with:
           caching: 'false'
-      - name: Output information
-        run: echo "exit message ${{steps.show.outputs.exit-message}}"
+      - name: Output variables information
+        run: echo "exit message ${{steps.show.outputs.exitMessage}}"
       - name: Lint code
         run: npm run lint
   test:
